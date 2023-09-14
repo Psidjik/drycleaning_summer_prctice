@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.GregorianCalendar;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -69,17 +70,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             clientService.addNewClient(new ClientHumanDto(0,"lyuda@mail.ru", clientHuman9 ));
             clientService.addNewClient(new ClientHumanDto(0,"ilya@mail.ru", clientHuman10 ));
 
-            orderService.addNewOrder(new OrderDto(0, "Джинсы", new Date(22,7 ,25), new BigDecimal(500), employeeService.getEmployeeById(1), clientService.getClientById(1)));
-            orderService.addNewOrder(new OrderDto(0, "Куртка", new Date(22,7 ,25), new BigDecimal(1500), employeeService.getEmployeeById(1), clientService.getClientById(2)));
-            orderService.addNewOrder(new OrderDto(0, "Постельное белье", new Date(22,7 ,26), new BigDecimal(7500), employeeService.getEmployeeById(1), clientService.getClientById(3)));
-            orderService.addNewOrder(new OrderDto(0, "Покрывало", new Date(22,7 ,28), new BigDecimal(700), employeeService.getEmployeeById(2), clientService.getClientById(4)));
-            orderService.addNewOrder(new OrderDto(0, "Зимняя Куртка", new Date(22,7 ,30), new BigDecimal(3500), employeeService.getEmployeeById(3), clientService.getClientById(5)));
-            orderService.addNewOrder(new OrderDto(0, "Джинсы+Куртка", new Date(22,7 ,31), new BigDecimal(4500), employeeService.getEmployeeById(2), clientService.getClientById(6)));
-            orderService.addNewOrder(new OrderDto(0, "Постельное белье+Халат", new Date(22,8 ,26), new BigDecimal(9500), employeeService.getEmployeeById(2), clientService.getClientById(7)));
-            orderService.addNewOrder(new OrderDto(0, "Шорты+Спортивный костюм", new Date(22,8 ,27), new BigDecimal(8500), employeeService.getEmployeeById(1), clientService.getClientById(8)));
-            orderService.addNewOrder(new OrderDto(0, "Коврик", new Date(22,8 ,28), new BigDecimal(3500), employeeService.getEmployeeById(2), clientService.getClientById(9)));
-            orderService.addNewOrder(new OrderDto(0, "Ковер", new Date(22,8 ,29), new BigDecimal(10500), employeeService.getEmployeeById(3), clientService.getClientById(10)));
-            orderService.addNewOrder(new OrderDto(0, "Шторы", new Date(22,8 ,30), new BigDecimal(7100), employeeService.getEmployeeById(1), clientService.getClientById(2)));
+            orderService.addNewOrder(new OrderDto(0, "Джинсы", new GregorianCalendar(2022,7 ,25), new BigDecimal(500), employeeService.getEmployeeById(1), clientService.getClientById(1)));
+            orderService.addNewOrder(new OrderDto(0, "Куртка", new GregorianCalendar(2022,7 ,25), new BigDecimal(1500), employeeService.getEmployeeById(1), clientService.getClientById(2)));
+            orderService.addNewOrder(new OrderDto(0, "Постельное белье", new GregorianCalendar(2022,7 ,26), new BigDecimal(7500), employeeService.getEmployeeById(1), clientService.getClientById(3)));
+            orderService.addNewOrder(new OrderDto(0, "Покрывало", new GregorianCalendar(2022,7 ,28), new BigDecimal(700), employeeService.getEmployeeById(2), clientService.getClientById(4)));
+            orderService.addNewOrder(new OrderDto(0, "Зимняя Куртка", new GregorianCalendar(2022,7 ,30), new BigDecimal(3500), employeeService.getEmployeeById(3), clientService.getClientById(5)));
+            orderService.addNewOrder(new OrderDto(0, "Джинсы+Куртка", new GregorianCalendar(2022,7 ,31), new BigDecimal(4500), employeeService.getEmployeeById(2), clientService.getClientById(6)));
+            orderService.addNewOrder(new OrderDto(0, "Постельное белье+Халат", new GregorianCalendar(2022,8 ,26), new BigDecimal(9500), employeeService.getEmployeeById(2), clientService.getClientById(7)));
+            orderService.addNewOrder(new OrderDto(0, "Шорты+Спортивный костюм", new GregorianCalendar(2022,8 ,27), new BigDecimal(8500), employeeService.getEmployeeById(1), clientService.getClientById(8)));
+            orderService.addNewOrder(new OrderDto(0, "Коврик", new GregorianCalendar(2022,8 ,28), new BigDecimal(3500), employeeService.getEmployeeById(2), clientService.getClientById(9)));
+            orderService.addNewOrder(new OrderDto(0, "Ковер", new GregorianCalendar(2022,8 ,29), new BigDecimal(10500), employeeService.getEmployeeById(3), clientService.getClientById(10)));
+            orderService.addNewOrder(new OrderDto(0, "Шторы", new GregorianCalendar(2022,8 ,30), new BigDecimal(7100), employeeService.getEmployeeById(1), clientService.getClientById(2)));
 
     }
     }

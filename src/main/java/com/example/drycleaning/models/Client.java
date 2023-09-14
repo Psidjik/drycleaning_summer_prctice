@@ -2,6 +2,7 @@ package com.example.drycleaning.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 
 
 @Entity
@@ -18,6 +19,11 @@ public class Client {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human human;
+
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
+    private List<Order> order;
+
 
     public Client(Integer id, String e_mail, Human human) {
         this.id = id;

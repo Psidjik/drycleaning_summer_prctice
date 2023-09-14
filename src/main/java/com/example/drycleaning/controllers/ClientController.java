@@ -31,7 +31,7 @@ public class ClientController {
     ClientHumanDto addClient(@RequestBody ClientHumanDto clientHumanDto){
         return clientService.addNewClient(clientHumanDto);
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     String deleteClient(@PathVariable Integer id){
         clientService.deleteClient(id);
         return "Client with id = " + id + " was deleted";

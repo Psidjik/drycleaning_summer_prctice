@@ -1,17 +1,17 @@
 package com.example.drycleaning.dtos;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.GregorianCalendar;
 
 public class OrderDto {
     private Integer id;
     private String itemName;
-    private Date dateOfVisit;
+    private GregorianCalendar dateOfVisit;
     private BigDecimal cost;
     private EmployeeHumanDto employeeHumanDto;
     private ClientDto clientDto;
 
-    public OrderDto(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, EmployeeHumanDto employeeHumanDto, ClientDto clientDto) {
+    public OrderDto(Integer id, String itemName, GregorianCalendar dateOfVisit, BigDecimal cost, EmployeeHumanDto employeeHumanDto, ClientDto clientDto) {
         this.id = id;
         this.itemName = itemName;
         this.dateOfVisit = dateOfVisit;
@@ -47,11 +47,11 @@ public class OrderDto {
         this.itemName = itemName;
     }
 
-    public Date getDateOfVisit() {
+    public GregorianCalendar getDateOfVisit() {
         return dateOfVisit;
     }
 
-    public void setDateOfVisit(Date dateOfVisit) {
+    public void setDateOfVisit(GregorianCalendar dateOfVisit) {
         this.dateOfVisit = dateOfVisit;
     }
 

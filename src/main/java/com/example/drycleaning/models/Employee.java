@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 
@@ -24,6 +25,10 @@ public class Employee {
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human human;
     //про каскадки более изучить
+
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+    private List<Order> order;
 
 
     public Employee(Integer id, BigDecimal salary, String post, String contractNumber, Human human) {
