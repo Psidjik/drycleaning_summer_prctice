@@ -40,5 +40,10 @@ public class OrderController {
         return orderService.addNewOrder(orderDto);
     }
 
+    @DeleteMapping("/delete/{id}")
+    void deleteOrderById(@PathVariable Integer id){
+        orderService.deleteOrderById(id);
+    }
+
 
 }

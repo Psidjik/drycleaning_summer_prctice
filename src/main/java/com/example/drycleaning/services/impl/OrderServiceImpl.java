@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,16 +37,22 @@ public class OrderServiceImpl implements OrderService<Integer> {
     public OrderDto addNewOrder(OrderDto orderDto) {
         return  modelMapper.map(orderRepository.save(modelMapper.map(orderDto, Order.class)), OrderDto.class);
     }//map - функция которая применяет к каждому объекту какие либо действия
-
-
     @Override
     public List<OrderOutPutDto> getAllOrders() {
         return orderRepository.findAll().stream().map(order -> modelMapper.map(order, OrderOutPutDto.class)).collect(Collectors.toList());
     }
-
+    @Override
+    public void deleteOrderById(Integer id) {
+        orderRepository.deleteById(id);
+    }
     @Override
     public List<OrderOutPutDto> getAllOrderByDate(Date date) {
         return orderRepository.findAllByDateOfVisit(date).stream().map(order -> modelMapper.map(order, OrderOutPutDto.class)).collect(Collectors.toList());
     }
+
+//    @Override
+//    public List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost) {
+//        return orderRepository.;
+//    }
 }
 

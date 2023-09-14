@@ -34,9 +34,10 @@ public class HumanController {
         return humanService.addNewHuman(human);
     }
     @DeleteMapping("/delete/{id}")
-    String deleteHuman(@PathVariable Integer id){
+    void deleteHuman(@PathVariable Integer id){
+        System.out.println("удалилось");
         humanService.deleteHuman(id);
-        return "Human with id = " + id + " was deleted";
+//        return "Human with id = " + id + " was deleted";
     }
     @PutMapping("/updatefirstname/{id}/{firstname}")
     HumanDto updateFirstName(@PathVariable Integer id, @PathVariable String firstname){

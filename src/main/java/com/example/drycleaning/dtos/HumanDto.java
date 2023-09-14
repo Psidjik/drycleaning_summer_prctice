@@ -1,18 +1,22 @@
 package com.example.drycleaning.dtos;
 
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import java.sql.Date;
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class HumanDto {
     private Integer id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
-//    private Date dateOfBirth;
+
+    public HumanDto(Integer id, String firstName, String lastName, String phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public HumanDto() {
+    }
 
     public Integer getId() {
         return id;

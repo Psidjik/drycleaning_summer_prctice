@@ -1,22 +1,36 @@
 package com.example.drycleaning.dtos;
 
-
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 import java.sql.Date;
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class OrderDto {
     private Integer id;
     private String itemName;
     private Date dateOfVisit;
     private BigDecimal cost;
     private EmployeeHumanDto employeeHumanDto;
-    private ClientHumanDto clientHumanDto;
-//DTO для добавления в базу данных
+    private ClientDto clientDto;
+
+    public OrderDto(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, EmployeeHumanDto employeeHumanDto, ClientDto clientDto) {
+        this.id = id;
+        this.itemName = itemName;
+        this.dateOfVisit = dateOfVisit;
+        this.cost = cost;
+        this.employeeHumanDto = employeeHumanDto;
+        this.clientDto = clientDto;
+    }
+
+    public OrderDto() {
+    }
+
+    public ClientDto getClientDto() {
+        return clientDto;
+    }
+
+    public void setClientDto(ClientDto clientDto) {
+        this.clientDto = clientDto;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -57,13 +71,13 @@ public class OrderDto {
         this.employeeHumanDto = employeeHumanDto;
     }
 
-    public ClientHumanDto getClientHumanDto() {
-        return clientHumanDto;
-    }
-
-    public void setClientHumanDto(ClientHumanDto clientHumanDto) {
-        this.clientHumanDto = clientHumanDto;
-    }
+//    public ClientHumanDto getClientHumanDto() {
+//        return clientHumanDto;
+//    }
+//
+//    public void setClientHumanDto(ClientHumanDto clientHumanDto) {
+//        this.clientHumanDto = clientHumanDto;
+//    }
 
     @Override
     public String toString() {
@@ -73,7 +87,7 @@ public class OrderDto {
                 ", dateOfVisit=" + dateOfVisit +
                 ", cost=" + cost +
                 ", employeeHumanDto=" + employeeHumanDto +
-                ", clientHumanDto=" + clientHumanDto +
+//                ", clientHumanDto=" + clientHumanDto +
                 '}';
     }
 }

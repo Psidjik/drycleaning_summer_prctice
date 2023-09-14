@@ -1,18 +1,19 @@
 package com.example.drycleaning.dtos;
 
-
-import com.example.drycleaning.models.Human;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
-@AllArgsConstructor
 public class ClientHumanDto {
 
     private Integer id;
     private String e_mail;
     private HumanDto humanDto;
+
+    public ClientHumanDto(Integer id, String e_mail, HumanDto humanDto) {
+        this.id = id;
+        this.e_mail = e_mail;
+        this.humanDto = humanDto;
+    }
+
+    public ClientHumanDto() {
+    }
 
     public Integer getId() {
         return id;

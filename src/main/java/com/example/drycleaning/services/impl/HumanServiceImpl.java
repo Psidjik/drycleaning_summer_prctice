@@ -44,8 +44,8 @@ public class HumanServiceImpl implements HumanService<Integer> {
     }
 
     @Override
-    public void deleteHuman(Integer humanId) {
-        humanRepository.deleteById(humanId);
+    public void deleteHuman(Integer id) {
+        humanRepository.deleteById(id);
     }
 
     @Override

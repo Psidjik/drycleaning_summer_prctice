@@ -1,13 +1,7 @@
 package com.example.drycleaning.dtos;
-
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 import java.sql.Date;
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class OrderOutPutDto {
     private Integer id;
     private String itemName;
@@ -17,6 +11,21 @@ public class OrderOutPutDto {
     private String lastNameEmployee;
     private String firstNameClient;
     private String lastNameClient;
+
+    public OrderOutPutDto(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, String firstNameEmployee,
+                          String lastNameEmployee, String firstNameClient, String lastNameClient) {
+        this.id = id;
+        this.itemName = itemName;
+        this.dateOfVisit = dateOfVisit;
+        this.cost = cost;
+        this.firstNameEmployee = firstNameEmployee;
+        this.lastNameEmployee = lastNameEmployee;
+        this.firstNameClient = firstNameClient;
+        this.lastNameClient = lastNameClient;
+    }
+
+    public OrderOutPutDto() {
+    }
 
     public Integer getId() {
         return id;

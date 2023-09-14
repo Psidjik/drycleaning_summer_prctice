@@ -1,18 +1,24 @@
 package com.example.drycleaning.dtos;
 
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class EmployeeHumanDto {
     private Integer id;
     private BigDecimal salary;
     private String post;
     private String contractNumber;
     public HumanDto humanDto;
+
+    public EmployeeHumanDto(Integer id, BigDecimal salary, String post, String contractNumber, HumanDto humanDto) {
+        this.id = id;
+        this.salary = salary;
+        this.post = post;
+        this.contractNumber = contractNumber;
+        this.humanDto = humanDto;
+    }
+
+    public EmployeeHumanDto() {
+    }
 
     public Integer getId() {
         return id;
