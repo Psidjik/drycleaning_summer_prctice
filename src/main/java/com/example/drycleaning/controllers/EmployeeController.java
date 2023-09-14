@@ -1,8 +1,6 @@
 package com.example.drycleaning.controllers;
 
 
-import com.example.drycleaning.dtos.ClientDto;
-import com.example.drycleaning.dtos.ClientHumanDto;
 import com.example.drycleaning.dtos.EmployeeDto;
 import com.example.drycleaning.dtos.EmployeeHumanDto;
 import com.example.drycleaning.services.EmployeeService;
@@ -31,8 +29,9 @@ public class EmployeeController {
         return employeeService.addNewEmployee(employeeHumanDto);
     }
     @DeleteMapping("/delete/{id}")
-    void deleteEmployee(@PathVariable Integer id){
+    String deleteEmployee(@PathVariable Integer id){
         employeeService.deleteEmployee(id);
+        return "Employee with id = " + id + " was deleted";
     }
     @PutMapping("/updatepost/{id}/{post}")
     EmployeeHumanDto updatePost(@PathVariable Integer id, @PathVariable String post){

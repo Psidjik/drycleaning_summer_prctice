@@ -23,11 +23,11 @@ public class Order {
 
     @Column(name = "cost",  nullable = false)
     private BigDecimal cost;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "client_id")
     private Client client;
 
