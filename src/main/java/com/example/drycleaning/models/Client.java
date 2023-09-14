@@ -1,13 +1,10 @@
 package com.example.drycleaning.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+
 
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "clients")
 public class Client {
     @Id
@@ -22,6 +19,14 @@ public class Client {
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human human;
 
+    public Client(Integer id, String e_mail, Human human) {
+        this.id = id;
+        this.e_mail = e_mail;
+        this.human = human;
+    }
+
+    public Client() {
+    }
 
     public Integer getId() {
         return id;

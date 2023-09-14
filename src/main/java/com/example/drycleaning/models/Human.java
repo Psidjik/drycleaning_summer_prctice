@@ -1,15 +1,11 @@
 package com.example.drycleaning.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 
 import java.sql.Date;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "humans")
 public class Human {
     @Id
@@ -26,7 +22,20 @@ public class Human {
     @Column(name = "phoneNumber",length = 20, nullable = false)
     private String phoneNumber;
 
-//    @Column(name = "date_of_birth", nullable = false)
+    public Human(Integer id, String firstName, String lastName, String phoneNumber, Employee employee, Client client) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.employee = employee;
+        this.client = client;
+    }
+
+    public Human() {
+    }
+
+
+    //    @Column(name = "date_of_birth", nullable = false)
 //    @Temporal(TemporalType.DATE)
 //    private Date dateOfBirth;
 

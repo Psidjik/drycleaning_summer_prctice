@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 public class DrycleaningApplication {
 
     @Bean
+//    Spring container
     public ModelMapper modelMapper(){
         ModelMapper modelMapper = new ModelMapper();
 

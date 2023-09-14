@@ -41,15 +41,11 @@
 
         <dependency>
             <groupId>org.modelmapper</groupId>
+            <!--Изучить modelmapper и его работу-->
             <artifactId>modelmapper</artifactId>
             <version>3.1.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
 
     <build>

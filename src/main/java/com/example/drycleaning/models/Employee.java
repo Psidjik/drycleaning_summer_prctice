@@ -1,15 +1,13 @@
 package com.example.drycleaning.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+
 
 
 import java.math.BigDecimal;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Table(name = "employees")
 public class Employee {
     @Id
@@ -26,6 +24,19 @@ public class Employee {
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human human;
     //про каскадки более изучить
+
+
+    public Employee(Integer id, BigDecimal salary, String post, String contractNumber, Human human) {
+        this.id = id;
+        this.salary = salary;
+        this.post = post;
+        this.contractNumber = contractNumber;
+        this.human = human;
+    }
+
+    public Employee() {
+    }
+
     public Integer getId() {
         return id;
     }

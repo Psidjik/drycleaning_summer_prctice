@@ -2,15 +2,11 @@ package com.example.drycleaning.models;
 
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.sql.Date;
 
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "orders")
 public class Order {
     @Id
@@ -36,7 +32,17 @@ public class Order {
     private Client client;
 
 
+    public Order(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, Employee employee, Client client) {
+        this.id = id;
+        this.itemName = itemName;
+        this.dateOfVisit = dateOfVisit;
+        this.cost = cost;
+        this.employee = employee;
+        this.client = client;
+    }
 
+    public Order() {
+    }
 
     public Integer getId() {
         return id;
