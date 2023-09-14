@@ -1,15 +1,11 @@
 package com.example.drycleaning.controllers;
 
 
-import com.example.drycleaning.dtos.EmployeeDto;
-import com.example.drycleaning.dtos.EmployeeHumanDto;
 import com.example.drycleaning.dtos.HumanDto;
-import com.example.drycleaning.services.EmployeeService;
 import com.example.drycleaning.services.HumanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -34,10 +30,9 @@ public class HumanController {
         return humanService.addNewHuman(human);
     }
     @DeleteMapping("/delete/{id}")
-    void deleteHuman(@PathVariable Integer id){
-        System.out.println("удалилось");
+    String deleteHuman(@PathVariable Integer id){
         humanService.deleteHuman(id);
-//        return "Human with id = " + id + " was deleted";
+        return "Human with id = " + id + " was deleted";
     }
     @PutMapping("/updatefirstname/{id}/{firstname}")
     HumanDto updateFirstName(@PathVariable Integer id, @PathVariable String firstname){
