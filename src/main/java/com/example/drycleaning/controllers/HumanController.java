@@ -18,7 +18,6 @@ public class HumanController {
         List<HumanDto> humans = humanService.getAllHuman();
         return humans;
     }
-
     @GetMapping("/{id}")
     HumanDto getHumanById(@PathVariable Integer id){
         HumanDto humanDto = humanService.getHumanById(id);

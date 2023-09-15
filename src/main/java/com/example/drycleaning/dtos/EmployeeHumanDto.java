@@ -9,6 +9,9 @@ public class EmployeeHumanDto {
     private String contractNumber;
     public HumanDto humanDto;
 
+
+
+
     public EmployeeHumanDto(Integer id, BigDecimal salary, String post, String contractNumber, HumanDto humanDto) {
         this.id = id;
         this.salary = salary;
@@ -23,6 +26,7 @@ public class EmployeeHumanDto {
     public Integer getId() {
         return id;
     }
+
 
     public void setId(Integer id) {
         this.id = id;

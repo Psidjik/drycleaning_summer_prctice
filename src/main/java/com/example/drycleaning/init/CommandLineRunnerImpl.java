@@ -82,6 +82,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             orderService.addNewOrder(new OrderDto(0, "Ковер", new GregorianCalendar(2022,8 ,29), new BigDecimal(10500), employeeService.getEmployeeById(3), clientService.getClientById(10)));
             orderService.addNewOrder(new OrderDto(0, "Шторы", new GregorianCalendar(2022,8 ,30), new BigDecimal(7100), employeeService.getEmployeeById(1), clientService.getClientById(2)));
 
+            System.out.println();
     }
     }
 

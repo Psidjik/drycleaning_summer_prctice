@@ -1,14 +1,15 @@
 package com.example.drycleaning;
 
-import com.example.drycleaning.dtos.ClientDto;
-import com.example.drycleaning.dtos.EmployeeDto;
-import com.example.drycleaning.dtos.OrderOutPutDto;
+import com.example.drycleaning.dtos.*;
 import com.example.drycleaning.models.Client;
 import com.example.drycleaning.models.Employee;
+import com.example.drycleaning.models.Human;
 import com.example.drycleaning.models.Order;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.modelmapper.config.Configuration;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -30,9 +31,38 @@ public class DrycleaningApplication {
         typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeDto::setLastName));
 //        typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),EmployeeDto::setPhoneNumber));
 
+        TypeMap<Human, HumanDto> typeMapHuman = modelMapper.createTypeMap(Human.class,HumanDto.class);
+//        typeMapHuman.addMappings(m->m.map(src -> src.getFirstName(),HumanDto::setFirstName));
+//        typeMapHuman.addMappings(m->m.map(src -> src.getLastName(),HumanDto::setLastName));
+//        typeMapHuman.addMappings(m->m.map(src -> src.getPhoneNumber(),HumanDto::setPhoneNumber));
+
+
+
+        TypeMap<Employee, EmployeeHumanDto> typeMapEmployeeHuman = modelMapper.createTypeMap(Employee.class,EmployeeHumanDto.class);
+        typeMapEmployeeHuman.addMappings(m->m.map(src -> src.getHuman().getEmployee().getHuman(),EmployeeHumanDto::setHumanDto));
+
+        TypeMap<Client, ClientHumanDto> typeMapClientHuman = modelMapper.createTypeMap(Client.class,ClientHumanDto.class);
+        typeMapClientHuman.addMappings(m->m.map(src -> src.getHuman().getClient().getHuman(),ClientHumanDto::setHumanDto));
+
+
+
+
+//        typeMapHuman.;
+//        typeMapEmployeeHuman.addMappings(m->m.map(src -> src.getHuman().getFirstName(),EmployeeHumanDto::setFirstName));
+//        typeMapEmployeeHuman.addMappings(m->m.map(src -> src.getHuman().getFirstName(),EmployeeHumanDto::se));
+//        typeMapEmployeeHuman.addMappings(m->m.map(src -> src.getHuman().getEmployee(),EmployeeHumanDto::setHumanDto));
+
+//        typeMapEmployeeHuman.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeHumanDto::));
+
+
+
+//        typeMapHuman.addMappings(m->m.map(src -> src.getEmployee(),HumanDto::se));
+//        typeMapHuman.addMappings(m->m.map(src -> src.getPhoneNumber(),HumanDto::setPhoneNumber));
+//        typeMapHuman.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeDto::setLastName));
+
 //        typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeDto::setLastName));
 //
-        TypeMap<Client, ClientDto> typeMapClient = modelMapper.createTypeMap(Client.class,ClientDto.class);
+        TypeMap<Client, ClientDto> typeMapClient = modelMapper.createTypeMap(Client.class, ClientDto.class);
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getFirstName(),ClientDto::setFirstName));
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getLastName(),ClientDto::setLastName));
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),ClientDto::setPhoneNumber));

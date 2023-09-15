@@ -9,26 +9,26 @@ public class OrderDto {
     private GregorianCalendar dateOfVisit;
     private BigDecimal cost;
     private EmployeeHumanDto employeeHumanDto;
-    private ClientDto clientDto;
+    private ClientHumanDto clientHumanDto;
 
-    public OrderDto(Integer id, String itemName, GregorianCalendar dateOfVisit, BigDecimal cost, EmployeeHumanDto employeeHumanDto, ClientDto clientDto) {
+    public OrderDto(Integer id, String itemName, GregorianCalendar dateOfVisit, BigDecimal cost, EmployeeHumanDto employeeHumanDto, ClientHumanDto clientHumanDto) {
         this.id = id;
         this.itemName = itemName;
         this.dateOfVisit = dateOfVisit;
         this.cost = cost;
         this.employeeHumanDto = employeeHumanDto;
-        this.clientDto = clientDto;
+        this.clientHumanDto = clientHumanDto;
     }
 
     public OrderDto() {
     }
 
-    public ClientDto getClientDto() {
-        return clientDto;
+    public ClientHumanDto getClientHumanDto() {
+        return clientHumanDto;
     }
 
-    public void setClientDto(ClientDto clientDto) {
-        this.clientDto = clientDto;
+    public void setClientHumanDto(ClientHumanDto clientHumanDto) {
+        this.clientHumanDto = clientHumanDto;
     }
 
     public Integer getId() {
@@ -87,7 +87,7 @@ public class OrderDto {
                 ", dateOfVisit=" + dateOfVisit +
                 ", cost=" + cost +
                 ", employeeHumanDto=" + employeeHumanDto +
-//                ", clientHumanDto=" + clientHumanDto +
+                ", clientHumanDto=" + clientHumanDto +
                 '}';
     }
 }
