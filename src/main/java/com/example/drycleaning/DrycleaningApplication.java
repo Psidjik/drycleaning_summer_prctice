@@ -26,23 +26,61 @@ public class DrycleaningApplication {
                 .setFieldMatchingEnabled(true)
                 .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE);
 
+        //
         TypeMap<Employee, EmployeeDto> typeMapEmployee = modelMapper.createTypeMap(Employee.class,EmployeeDto.class);
         typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getFirstName(),EmployeeDto::setFirstName));
         typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeDto::setLastName));
-//        typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),EmployeeDto::setPhoneNumber));
 
-        TypeMap<Human, HumanDto> typeMapHuman = modelMapper.createTypeMap(Human.class,HumanDto.class);
-//        typeMapHuman.addMappings(m->m.map(src -> src.getFirstName(),HumanDto::setFirstName));
-//        typeMapHuman.addMappings(m->m.map(src -> src.getLastName(),HumanDto::setLastName));
-//        typeMapHuman.addMappings(m->m.map(src -> src.getPhoneNumber(),HumanDto::setPhoneNumber));
-
-
-
+        //чтобы была ссылка на объект human
         TypeMap<Employee, EmployeeHumanDto> typeMapEmployeeHuman = modelMapper.createTypeMap(Employee.class,EmployeeHumanDto.class);
         typeMapEmployeeHuman.addMappings(m->m.map(src -> src.getHuman().getEmployee().getHuman(),EmployeeHumanDto::setHumanDto));
-
+        //
+        TypeMap<Client, ClientDto> typeMapClient = modelMapper.createTypeMap(Client.class, ClientDto.class);
+        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getFirstName(),ClientDto::setFirstName));
+        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getLastName(),ClientDto::setLastName));
+        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),ClientDto::setPhoneNumber));
+        //чтобы была ссылка на объект human
         TypeMap<Client, ClientHumanDto> typeMapClientHuman = modelMapper.createTypeMap(Client.class,ClientHumanDto.class);
         typeMapClientHuman.addMappings(m->m.map(src -> src.getHuman().getClient().getHuman(),ClientHumanDto::setHumanDto));
+
+        //для вывода, чтобы не было humanDto=null
+        TypeMap<HumanDto, Human> typeMapHuman = modelMapper.createTypeMap(HumanDto.class,Human.class);
+        typeMapHuman.addMappings(m->m.map(src -> src.getFirstName(), Human::setFirstName));
+        typeMapHuman.addMappings(m->m.map(src -> src.getLastName(), Human::setLastName));
+        typeMapHuman.addMappings(m->m.map(src -> src.getPhoneNumber(), Human::setPhoneNumber));
+
+
+        TypeMap<Order, OrderOutPutDto> typeMapVisitOut = modelMapper.createTypeMap(Order.class, OrderOutPutDto.class);
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getFirstName(),OrderOutPutDto::setFirstNameEmployee));
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getLastName(),OrderOutPutDto::setLastNameEmployee));
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getFirstName(),OrderOutPutDto::setFirstNameClient));
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getLastName(),OrderOutPutDto::setLastNameClient));
+
+
+
+
+
+
+
+
+
+
+//        TypeMap<EmployeeHumanDto, HumanDto> typeMapEmployeeHumanDto = modelMapper.createTypeMap(EmployeeHumanDto.class,HumanDto.class);
+//        typeMapEmployeeHumanDto.addMappings(m->m.map(src -> src.getHumanDto().getFirstName(), HumanDto::setFirstName));
+//        typeMapEmployeeHumanDto.addMappings(m->m.map(src -> src.getHumanDto().getLastName(), HumanDto::setLastName));
+//        typeMapEmployeeHumanDto.addMappings(m->m.map(src -> src.getHumanDto().getPhoneNumber(), HumanDto::setPhoneNumber));
+
+
+//        TypeMap<Employee, HumanDto> dtoTypeMap = modelMapper.createTypeMap(Employee.class, HumanDto.class);
+//        dtoTypeMap.addMappings(m->m.map(src -> src.getHuman().getEmployee().getHuman(), HumanDto::setFirstName));
+////        dtoTypeMap.addMappings(m->m.map(src -> src.getHumanDto().getLastName(), HumanDto::setLastName));
+////        dtoTypeMap.addMappings(m->m.map(src -> src.getHumanDto().getPhoneNumber(), HumanDto::setPhoneNumber));
+//
+
+
+
+
+
 
 
 
@@ -62,17 +100,10 @@ public class DrycleaningApplication {
 
 //        typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeDto::setLastName));
 //
-        TypeMap<Client, ClientDto> typeMapClient = modelMapper.createTypeMap(Client.class, ClientDto.class);
-        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getFirstName(),ClientDto::setFirstName));
-        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getLastName(),ClientDto::setLastName));
-        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),ClientDto::setPhoneNumber));
+
 //        typeMapClient.addMappings(m->m.map(src -> src.getHuman().getLastName(),ClientDto::setLastName));
 
-        TypeMap<Order, OrderOutPutDto> typeMapVisitOut = modelMapper.createTypeMap(Order.class, OrderOutPutDto.class);
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getFirstName(),OrderOutPutDto::setFirstNameEmployee));
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getLastName(),OrderOutPutDto::setLastNameEmployee));
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getFirstName(),OrderOutPutDto::setFirstNameClient));
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getLastName(),OrderOutPutDto::setLastNameClient));
+
 
         return modelMapper;
     }

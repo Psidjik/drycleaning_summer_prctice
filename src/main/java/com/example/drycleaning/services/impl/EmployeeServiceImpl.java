@@ -25,8 +25,8 @@ public class EmployeeServiceImpl implements EmployeeService<Integer> {
     }//стрим создаёт поток данных
 
     @Override
-    public EmployeeHumanDto addNewEmployee(EmployeeHumanDto employeeHumanDto) {
-        return modelMapper.map(employeeRepository.save(modelMapper.map(employeeHumanDto, Employee.class)), EmployeeHumanDto.class);
+    public EmployeeDto addNewEmployee(EmployeeHumanDto employeeHumanDto) {
+        return modelMapper.map(employeeRepository.save(modelMapper.map(employeeHumanDto, Employee.class)), EmployeeDto.class);
     }
 
     @Override

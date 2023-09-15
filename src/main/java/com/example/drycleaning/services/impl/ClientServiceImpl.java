@@ -27,8 +27,8 @@ public class ClientServiceImpl implements ClientService<Integer> {
     }
 
     @Override
-    public ClientHumanDto addNewClient(ClientHumanDto ClientHumanDto) {
-        return modelMapper.map(clientRepository.save(modelMapper.map(ClientHumanDto, Client.class)), ClientHumanDto.class);
+    public ClientDto addNewClient(ClientHumanDto ClientHumanDto) {
+        return modelMapper.map(clientRepository.save(modelMapper.map(ClientHumanDto, Client.class)), ClientDto.class);
     }
     @Override
     public ClientHumanDto getClientById(Integer clientId) {

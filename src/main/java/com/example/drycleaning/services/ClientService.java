@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ClientService<ID>{
     List<ClientDto> getAllClients();
-    ClientHumanDto addNewClient(ClientHumanDto ClientHumanDto);
+    ClientDto addNewClient(ClientHumanDto ClientHumanDto);
     ClientHumanDto getClientById(ID clientId);
     void deleteClient(ID clientId);
     ClientHumanDto updateE_mail(ID clientId, String e_mail);

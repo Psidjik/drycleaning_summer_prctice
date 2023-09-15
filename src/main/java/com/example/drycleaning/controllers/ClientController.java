@@ -27,7 +27,7 @@ public class ClientController {
         return clientService.getClientById(id);
     }
     @PostMapping("/addclient")
-    ClientHumanDto addClient(@RequestBody ClientHumanDto clientHumanDto){
+    ClientDto addClient(@RequestBody ClientHumanDto clientHumanDto){
         return clientService.addNewClient(clientHumanDto);
     }
     @DeleteMapping("/delete/{id}")
