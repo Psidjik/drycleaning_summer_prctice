@@ -3,6 +3,7 @@ package com.example.drycleaning.services.impl;
 
 import com.example.drycleaning.dtos.ClientDto;
 import com.example.drycleaning.dtos.ClientHumanDto;
+import com.example.drycleaning.dtos.HumanDto;
 import com.example.drycleaning.models.Client;
 import com.example.drycleaning.repositories.ClientRepository;
 import com.example.drycleaning.services.ClientService;
@@ -34,6 +35,12 @@ public class ClientServiceImpl implements ClientService<Integer> {
     public ClientHumanDto getClientById(Integer clientId) {
         return modelMapper.map(clientRepository.findById(clientId), ClientHumanDto.class);
     }
+
+    @Override
+    public Integer getClientByIdForOrder(HumanDto humanDto) {
+        return getClientById(humanDto.getId()).getId();
+    }
+
     @Override
     public void deleteClient(Integer clientId) {
         clientRepository.deleteById(clientId);

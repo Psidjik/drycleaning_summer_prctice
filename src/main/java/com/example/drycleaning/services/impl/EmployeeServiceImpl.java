@@ -2,6 +2,7 @@ package com.example.drycleaning.services.impl;
 
 import com.example.drycleaning.dtos.EmployeeDto;
 import com.example.drycleaning.dtos.EmployeeHumanDto;
+import com.example.drycleaning.dtos.HumanDto;
 import com.example.drycleaning.models.Employee;
 import com.example.drycleaning.repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;
@@ -38,6 +39,13 @@ public class EmployeeServiceImpl implements EmployeeService<Integer> {
     public EmployeeHumanDto getEmployeeById(Integer employeeId) {
         return modelMapper.map(employeeRepository.findById(employeeId).orElseThrow(), EmployeeHumanDto.class);
     }
+
+    @Override
+    public Integer getEmployeeByIdForOrder(HumanDto humanDto) {
+//        getEmployeeById(humanDto.getId());
+        return getEmployeeById(humanDto.getId()).getId();
+    }
+
 
     @Override
     public EmployeeHumanDto updatePost(Integer employeeId, String post) {

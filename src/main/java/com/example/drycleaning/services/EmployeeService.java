@@ -3,6 +3,7 @@ package com.example.drycleaning.services;
 
 import com.example.drycleaning.dtos.EmployeeDto;
 import com.example.drycleaning.dtos.EmployeeHumanDto;
+import com.example.drycleaning.dtos.HumanDto;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,6 +13,8 @@ public interface EmployeeService<ID> {
     EmployeeDto addNewEmployee(EmployeeHumanDto employeeHumanDto);
     void deleteEmployee(ID employeeId);
     EmployeeHumanDto getEmployeeById(ID employeeId);
+
+    Integer getEmployeeByIdForOrder(HumanDto humanDto);
     EmployeeHumanDto updatePost(ID employeeId, String post);
     EmployeeHumanDto updateSalary(ID employeeId, BigDecimal salary);
 
