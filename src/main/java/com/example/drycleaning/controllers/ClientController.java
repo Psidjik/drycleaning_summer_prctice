@@ -23,8 +23,7 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    ClientDto getClientById(@PathVariable Integer id){
-//        return clientService.getClientById(id);
+    ClientHumanDto getClientById(@PathVariable Integer id){
         return clientService.getClientById(id);
     }
     @PostMapping("/addclient")

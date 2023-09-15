@@ -22,6 +22,7 @@ public class OrderController {
     Iterable<OrderDto> getAllOrders(){
         return orderService.getAllOrders();
     }
+
     @GetMapping("/getorder/{employeeid}/{clientid}/{date}")
     OrderDto getOrder(@PathVariable Integer employeeid, @PathVariable Integer clientid, @PathVariable Date date){
         return orderService.getOrder(employeeid, clientid, date);

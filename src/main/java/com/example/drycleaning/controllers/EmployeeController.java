@@ -3,6 +3,7 @@ package com.example.drycleaning.controllers;
 
 import com.example.drycleaning.dtos.EmployeeDto;
 import com.example.drycleaning.dtos.EmployeeHumanDto;
+import com.example.drycleaning.dtos.HumanDto;
 import com.example.drycleaning.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
+
     @GetMapping("/allemployee")
     List<EmployeeDto> getAllEmplloyee(){
         return employeeService.getAllEmployees();
@@ -27,6 +29,7 @@ public class EmployeeController {
     @PostMapping("/addemployee")
     EmployeeHumanDto addClient(@RequestBody EmployeeHumanDto employeeHumanDto){
         return employeeService.addNewEmployee(employeeHumanDto);
+
     }
     @DeleteMapping("/delete/{id}")
     String deleteEmployee(@PathVariable Integer id){

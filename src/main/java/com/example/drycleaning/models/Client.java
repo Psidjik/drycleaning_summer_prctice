@@ -16,7 +16,7 @@ public class Client {
     @Column(name = "email", length = 20, nullable = false)
     protected String e_mail;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human human;
 
