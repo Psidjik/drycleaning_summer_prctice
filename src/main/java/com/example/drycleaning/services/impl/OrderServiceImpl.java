@@ -50,6 +50,11 @@ public class OrderServiceImpl implements OrderService<Integer> {
         return orderRepository.findAllByDateOfVisit(date).stream().map(order -> modelMapper.map(order, OrderOutPutDto.class)).collect(Collectors.toList());
     }
 
+    @Override
+    public OrderOutPutDto getOrderById(Integer orderId) {
+        return modelMapper.map(orderRepository.findById(orderId), OrderOutPutDto.class);
+    }
+
 //    @Override
 //    public List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost) {
 //        return orderRepository.;

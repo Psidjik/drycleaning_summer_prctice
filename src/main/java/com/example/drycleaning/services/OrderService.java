@@ -19,6 +19,8 @@ public interface OrderService<ID>{
     void deleteOrderById(ID orderId);
     List<OrderOutPutDto> getAllOrderByDate(Date date);
 
+    OrderOutPutDto getOrderById(ID orderId);
+
 //    List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost);
 
 }
