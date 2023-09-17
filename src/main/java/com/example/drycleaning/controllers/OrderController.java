@@ -7,6 +7,7 @@ import com.example.drycleaning.dtos.OrderOutPutDto;
 import com.example.drycleaning.services.OrderService;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -50,6 +51,11 @@ public class OrderController {
     void deleteOrderById(@PathVariable Integer id){
         orderService.deleteOrderById(id);
     }
+
+//    @GetMapping("/{employeeId}/{clientId}")
+//    Iterable<OrderDto> findOrderByEmployeeAndClient(@PathVariable Integer employeeId, @PathVariable Integer clientId){
+//        return orderService.findOrderByEmployeeAndClient(employeeId, clientId);
+
 
 
 }

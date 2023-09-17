@@ -3,6 +3,8 @@ package com.example.drycleaning.services;
 
 import com.example.drycleaning.dtos.OrderDto;
 import com.example.drycleaning.dtos.OrderOutPutDto;
+import com.example.drycleaning.models.Order;
+import org.springframework.data.repository.query.Param;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -20,6 +22,8 @@ public interface OrderService<ID>{
     List<OrderOutPutDto> getAllOrderByDate(Date date);
 
     OrderOutPutDto getOrderById(ID orderId);
+
+//    List<OrderDto> findOrderByEmployeeAndClient(ID employeeId, ID clientId);
 
 //    List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost);
 

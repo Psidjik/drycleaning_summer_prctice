@@ -2,6 +2,9 @@ package com.example.drycleaning.controllers;
 
 
 import com.example.drycleaning.dtos.HumanDto;
+import com.example.drycleaning.dtos.OrderDto;
+import com.example.drycleaning.dtos.OrderOutPutDto;
+import com.example.drycleaning.models.Order;
 import com.example.drycleaning.services.HumanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,4 +44,10 @@ public class HumanController {
     HumanDto updateLastName(@PathVariable Integer id, @PathVariable String lastname){
         return humanService.updateLastName(id, lastname);
     }
+    @GetMapping("/findOrderByPhoneNumber/{phoneNumber}")
+    List<Object> findOrderIdAndDateByPhoneNumber(@PathVariable String phoneNumber){
+        return humanService.findOrderIdAndDateByPhoneNumber(phoneNumber);
+    }
+
+
     }

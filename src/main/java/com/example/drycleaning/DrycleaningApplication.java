@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import java.lang.reflect.Type;
+import java.util.Objects;
 
 @SpringBootApplication
 public class DrycleaningApplication {
@@ -31,8 +32,16 @@ public class DrycleaningApplication {
 
         //
         TypeMap<Employee, EmployeeDto> typeMapEmployee = modelMapper.createTypeMap(Employee.class,EmployeeDto.class);
+        typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getId(),EmployeeDto::setId));
+        typeMapEmployee.addMappings(m->m.map(src -> src.getId(),EmployeeDto::setId));
+        typeMapEmployee.addMappings(m->m.map(src -> src.getSalary(),EmployeeDto::setSalary));
         typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getFirstName(),EmployeeDto::setFirstName));
         typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getLastName(),EmployeeDto::setLastName));
+
+        TypeMap<EmployeeDto, Employee> typeMapEmployeeDTO = modelMapper.createTypeMap(EmployeeDto.class,Employee.class);
+        typeMapEmployeeDTO.addMappings(m->m.map(src -> src.getId(),Employee::setId));
+
+
 
         //чтобы была ссылка на объект human
         TypeMap<Employee, EmployeeHumanDto> typeMapEmployeeHuman = modelMapper.createTypeMap(Employee.class,EmployeeHumanDto.class);
@@ -59,6 +68,14 @@ public class DrycleaningApplication {
         typeMapHuman.addMappings(m->m.map(src -> src.getFirstName(), Human::setFirstName));
         typeMapHuman.addMappings(m->m.map(src -> src.getLastName(), Human::setLastName));
         typeMapHuman.addMappings(m->m.map(src -> src.getPhoneNumber(), Human::setPhoneNumber));
+
+
+        TypeMap<Human, HumanDto> typeMapHumanDTO = modelMapper.createTypeMap(Human.class,HumanDto.class);
+        typeMapHumanDTO.addMappings(m->m.map(src -> src.getId(), HumanDto::setId));
+        typeMapHumanDTO.addMappings(m->m.map(src -> src.getFirstName(), HumanDto::setFirstName));
+        typeMapHumanDTO.addMappings(m->m.map(src -> src.getLastName(), HumanDto::setLastName));
+        typeMapHumanDTO.addMappings(m->m.map(src -> src.getPhoneNumber(), HumanDto::setPhoneNumber));
+
 
 //        TypeMap<HumanDto, ClientHumanDto> typeMapHuman1 = modelMapper.createTypeMap(HumanDto.class,ClientHumanDto.class);
 //        typeMapHuman.addMappings(m->m.map(src -> src.getId(), ClientHumanDto::setId));

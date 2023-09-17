@@ -56,6 +56,11 @@ public class OrderServiceImpl implements OrderService<Integer> {
     }
 
 //    @Override
+//    public List<OrderDto> findOrderByEmployeeAndClient(Integer employeeId, Integer clientId) {
+//        return orderRepository.findOrderByEmployeeAndClient(employeeId, clientId).stream().map(o -> modelMapper.map(o, OrderDto.class)).collect(Collectors.toList());
+//    }
+
+//    @Override
 //    public List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost) {
 //        return orderRepository.;
 //    }

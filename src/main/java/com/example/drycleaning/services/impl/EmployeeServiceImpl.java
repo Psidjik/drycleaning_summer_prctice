@@ -3,6 +3,7 @@ package com.example.drycleaning.services.impl;
 import com.example.drycleaning.dtos.EmployeeDto;
 import com.example.drycleaning.dtos.EmployeeHumanDto;
 import com.example.drycleaning.dtos.HumanDto;
+import com.example.drycleaning.dtos.OrderDto;
 import com.example.drycleaning.models.Employee;
 import com.example.drycleaning.repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.example.drycleaning.services.EmployeeService;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,4 +64,24 @@ public class EmployeeServiceImpl implements EmployeeService<Integer> {
         employeeRepository.save(employee);
         return modelMapper.map(employee, EmployeeHumanDto.class);
     }
+
+//    @Override
+//    public List<EmployeeDto> findOrderCountByEmployeeId() {
+////        return employeeRepository.findOrderCountByEmployeeId().stream().map(employee -> modelMapper.map(employee, Object[].class)).collect(Collectors.toList());
+//        List<Object[]> results = employeeRepository.findOrderCountByEmployeeId();
+//        List<EmployeeDto> employeeDtos = new ArrayList<>();
+//
+//        for (Object[] result : results) {
+//            EmployeeDto employeeDto = new EmployeeDto();
+//            employeeDto.setId((Long) result[0]);
+//            employeeDto((Date) result[1]);
+//            employeeDto.setOrderCount((Long) result[2]);
+//            employeeDtos.add(employeeDto);
+//        }
+//
+//        return employeeDtos;
+//    }
+
+
+
 }

@@ -25,6 +25,14 @@ List<Order> findAllByDateOfVisit(Date dateOfVisit);
 //    @Query("select order ")
 //    List<Order> findOrdersWhereCostMore(@Param("cost")BigDecimal cost);
 
+//    @Query("SELECT o.dateOfVisit AS dateOfVisit, o.cost AS cost, e.human.firstName AS employeeName, c.human.firstName AS clientName " +
+//            "FROM Orders o " +
+//            "INNER JOIN o.employee e " +
+//            "INNER JOIN o.client c " +
+//            "WHERE e.employeeId = :employeeId AND c.clientId = :clientId")
+//    List<Order> findOrderByEmployeeAndClient(@Param("employeeId") Integer employeeId,@Param("clientId") Integer clientId);
+
+
 
 }
 

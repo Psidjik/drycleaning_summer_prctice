@@ -4,7 +4,9 @@ package com.example.drycleaning.controllers;
 import com.example.drycleaning.dtos.EmployeeDto;
 import com.example.drycleaning.dtos.EmployeeHumanDto;
 import com.example.drycleaning.dtos.HumanDto;
+import com.example.drycleaning.models.Employee;
 import com.example.drycleaning.services.EmployeeService;
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,4 +46,10 @@ public class EmployeeController {
     EmployeeHumanDto updateSalary(@PathVariable Integer id, @PathVariable BigDecimal salary){
         return employeeService.updateSalary(id, salary);
     }
+
+
+//    @GetMapping("/getorderbyemployeeid")
+//            List<EmployeeDto> getOrderByEmployeeId(){
+//        return employeeService.findOrderCountByEmployeeId();
+//    }
 }

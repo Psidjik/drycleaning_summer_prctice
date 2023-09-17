@@ -7,6 +7,7 @@ import com.example.drycleaning.dtos.HumanDto;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 public interface EmployeeService<ID> {
     List<EmployeeDto> getAllEmployees();
@@ -17,6 +18,8 @@ public interface EmployeeService<ID> {
     Integer getEmployeeByIdForOrder(HumanDto humanDto);
     EmployeeHumanDto updatePost(ID employeeId, String post);
     EmployeeHumanDto updateSalary(ID employeeId, BigDecimal salary);
+
+//    List<EmployeeDto> findOrderCountByEmployeeId();
 
 }
 
