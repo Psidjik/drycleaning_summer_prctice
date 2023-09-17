@@ -13,11 +13,11 @@ import java.util.List;
 
 @Repository
 public interface HumanRepository extends JpaRepository<Human, Integer> {
-    @Query("SELECT o.id AS order_id, o.dateOfVisit AS date, o.itemName AS itemName, o.cost AS cost, o.employee.id as employeeId, c.id as clientId " +
-            "FROM Human h " +
-            "JOIN Client c ON h.id = c.human.id " +
-            "JOIN Order o ON c.id = o.client.id " +
+    @Query("SELECT o " +
+            "FROM Order o " +
+            "JOIN o.client c " +
+            "JOIN c.human h " +
             "WHERE h.phoneNumber = :phoneNumber")
-    List<Object[]> findOrderIdAndDateByPhoneNumber(@Param("phoneNumber") String phoneNumber);
+    List<Order> findOrderIdAndDateByPhoneNumber(@Param("phoneNumber") String phoneNumber);
 
 }

@@ -45,7 +45,7 @@ public class HumanController {
         return humanService.updateLastName(id, lastname);
     }
     @GetMapping("/findOrderByPhoneNumber/{phoneNumber}")
-    List<Object> findOrderIdAndDateByPhoneNumber(@PathVariable String phoneNumber){
+    List<OrderOutPutDto> findOrderIdAndDateByPhoneNumber(@PathVariable String phoneNumber){
         return humanService.findOrderIdAndDateByPhoneNumber(phoneNumber);
     }
 

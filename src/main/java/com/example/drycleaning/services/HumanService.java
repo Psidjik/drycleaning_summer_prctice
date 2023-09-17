@@ -15,7 +15,7 @@ public interface HumanService<ID> {
     void deleteHuman(ID humanId);
     HumanDto getHumanById(ID humanId);
     List<HumanDto> getAllHuman();
-    List<OrderDto> findOrderIdAndDateByPhoneNumber(String phoneNumber);
+    List<OrderOutPutDto> findOrderIdAndDateByPhoneNumber(String phoneNumber);
 }
 
 
