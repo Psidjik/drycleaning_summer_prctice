@@ -31,7 +31,6 @@ public class ClientHumanDto {
         this.e_mail = e_mail;
     }
 
-
     public HumanDto getHumanDto() {
         return humanDto;
     }

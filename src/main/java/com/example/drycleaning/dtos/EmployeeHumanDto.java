@@ -7,10 +7,7 @@ public class EmployeeHumanDto {
     private BigDecimal salary;
     private String post;
     private String contractNumber;
-
     public HumanDto humanDto;
-
-
 
 
     public EmployeeHumanDto(Integer id, BigDecimal salary, String post, String contractNumber, HumanDto humanDto) {

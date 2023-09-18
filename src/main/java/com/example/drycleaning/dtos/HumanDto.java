@@ -50,14 +50,6 @@ public class HumanDto {
         this.phoneNumber = phoneNumber;
     }
 
-//    public Date getDateOfBirth() {
-//        return dateOfBirth;
-//    }
-
-//    public void setDateOfBirth(Date dateOfBirth) {
-//        this.dateOfBirth = dateOfBirth;
-//    }
-
     @Override
     public String toString() {
         return "HumanDto{" +
@@ -65,7 +57,6 @@ public class HumanDto {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-//                ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
 }

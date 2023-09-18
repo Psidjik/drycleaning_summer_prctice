@@ -58,6 +58,4 @@ public class OrderController {
         return orderService.updateItemName(id, itemName);
     }
 
-//    http://localhost:8080/order/updateItemName/2/Кепка
-
 }

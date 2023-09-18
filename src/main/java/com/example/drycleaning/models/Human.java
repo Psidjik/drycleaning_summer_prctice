@@ -22,10 +22,6 @@ public class Human {
     @Column(name = "phoneNumber",length = 20, nullable = false)
     private String phoneNumber;
 
-
-
-
-
     public Human(Integer id, String firstName, String lastName, String phoneNumber, Employee employee, Client client) {
         this.id = id;
         this.firstName = firstName;
@@ -37,15 +33,6 @@ public class Human {
 
     public Human() {
     }
-
-
-    //    @Column(name = "date_of_birth", nullable = false)
-//    @Temporal(TemporalType.DATE)
-//    private Date dateOfBirth;
-
-//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
-//    private Contact contact;
 
     @OneToOne(mappedBy = "human", cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
     private Employee employee;
@@ -85,14 +72,6 @@ public class Human {
         this.phoneNumber = phoneNumber;
     }
 
-//    public Date getDateOfBirth() {
-//        return dateOfBirth;
-//    }
-//
-//    public void setDateOfBirth(Date dateOfBirth) {
-//        this.dateOfBirth = dateOfBirth;
-//    }
-
     public Employee getEmployee() {
         return employee;
     }
@@ -116,7 +95,6 @@ public class Human {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-//                ", dateOfBirth=" + dateOfBirth +
                 ", employee=" + employee +
                 ", client=" + client +
                 '}';

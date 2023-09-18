@@ -30,13 +30,11 @@ public class DrycleaningApplication {
                 .setFieldMatchingEnabled(true)
                 .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE);
 
-
         TypeMap<Employee, EmployeeOutDto> typeMapEmployeeOrder = modelMapper.createTypeMap(Employee.class,EmployeeOutDto.class);
         typeMapEmployeeOrder.addMappings((m->m.map(src -> src.getHuman().getFirstName(),EmployeeOutDto::setFirstName)));
         typeMapEmployeeOrder.addMappings((m->m.map(src -> src.getHuman().getLastName(), EmployeeOutDto::setLastName)));
         typeMapEmployeeOrder.addMappings(m -> m.map(src -> src.getOrderCount(), EmployeeOutDto::setOrderCount));
         typeMapEmployeeOrder.addMappings(m -> m.map(src -> src.getTotalCost(), EmployeeOutDto::setTotalCost));
-
 
         TypeMap<Employee, EmployeeDto> typeMapEmployee = modelMapper.createTypeMap(Employee.class,EmployeeDto.class);
         typeMapEmployee.addMappings(m->m.map(src -> src.getHuman().getId(),EmployeeDto::setId));
@@ -47,8 +45,6 @@ public class DrycleaningApplication {
 
         TypeMap<EmployeeDto, Employee> typeMapEmployeeDTO = modelMapper.createTypeMap(EmployeeDto.class,Employee.class);
         typeMapEmployeeDTO.addMappings(m->m.map(src -> src.getId(),Employee::setId));
-
-
 
         //чтобы была ссылка на объект human
         TypeMap<Employee, EmployeeHumanDto> typeMapEmployeeHuman = modelMapper.createTypeMap(Employee.class,EmployeeHumanDto.class);
@@ -83,8 +79,6 @@ public class DrycleaningApplication {
         typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getLastName(),OrderOutPutDto::setLastNameEmployee));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getFirstName(),OrderOutPutDto::setFirstNameClient));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getLastName(),OrderOutPutDto::setLastNameClient));
-
-
 
         return modelMapper;
     }

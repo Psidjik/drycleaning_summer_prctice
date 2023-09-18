@@ -42,13 +42,6 @@ public class EmployeeServiceImpl implements EmployeeService<Integer> {
     }
 
     @Override
-    public Integer getEmployeeByIdForOrder(HumanDto humanDto) {
-//        getEmployeeById(humanDto.getId());
-        return getEmployeeById(humanDto.getId()).getId();
-    }
-
-
-    @Override
     public EmployeeHumanDto updatePost(Integer employeeId, String post) {
         Employee employee = employeeRepository.findById(employeeId).orElseThrow();
         employee.setPost(post);

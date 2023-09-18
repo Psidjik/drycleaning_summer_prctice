@@ -103,18 +103,6 @@ public class Employee {
     public void setContractNumber(String contractNumber) {
         this.contractNumber = contractNumber;
     }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", human=" + human +
-                ", salary=" + salary +
-                ", post='" + post + '\'' +
-                ", contractNumber='" + contractNumber + '\'' +
-                '}';
-    }
-
     public List<Order> getOrder() {
         return order;
     }
@@ -137,5 +125,15 @@ public class Employee {
 
     public void setTotalCost(BigDecimal totalCost) {
         this.totalCost = totalCost;
+    }
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", human=" + human +
+                ", salary=" + salary +
+                ", post='" + post + '\'' +
+                ", contractNumber='" + contractNumber + '\'' +
+                '}';
     }
 }

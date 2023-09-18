@@ -37,11 +37,6 @@ public class ClientServiceImpl implements ClientService<Integer> {
     }
 
     @Override
-    public Integer getClientByIdForOrder(HumanDto humanDto) {
-        return getClientById(humanDto.getId()).getId();
-    }
-
-    @Override
     public void deleteClient(Integer clientId) {
         clientRepository.deleteById(clientId);
     }

@@ -9,20 +9,9 @@ public class OrderDto {
     private String itemName;
     private GregorianCalendar dateOfVisit;
     private BigDecimal cost;
-//    private EmployeeHumanDto employeeHumanDto;
-//    private ClientHumanDto clientHumanDto;
 
     private Integer employeeId;
     private Integer clientId;
-
-//    public OrderDto(Integer id, String itemName, GregorianCalendar dateOfVisit, BigDecimal cost, EmployeeHumanDto employeeHumanDto, ClientHumanDto clientHumanDto) {
-//        this.id = id;
-//        this.itemName = itemName;
-//        this.dateOfVisit = dateOfVisit;
-//        this.cost = cost;
-//        this.employeeHumanDto = employeeHumanDto;
-//        this.clientHumanDto = clientHumanDto;
-//    }
 
 
     public OrderDto(Integer id, String itemName, GregorianCalendar dateOfVisit, BigDecimal cost, Integer employeeId, Integer clientId) {
@@ -37,13 +26,6 @@ public class OrderDto {
     public OrderDto() {
     }
 
-//    public ClientHumanDto getClientHumanDto() {
-//        return clientHumanDto;
-//    }
-//
-//    public void setClientHumanDto(ClientHumanDto clientHumanDto) {
-//        this.clientHumanDto = clientHumanDto;
-//    }
 
     public Integer getId() {
         return id;
@@ -93,22 +75,6 @@ public class OrderDto {
         this.clientId = clientId;
     }
 
-    //    public EmployeeHumanDto getEmployeeHumanDto() {
-//        return employeeHumanDto;
-//    }
-//
-//    public void setEmployeeHumanDto(EmployeeHumanDto employeeHumanDto) {
-//        this.employeeHumanDto = employeeHumanDto;
-//    }
-
-//    public ClientHumanDto getClientHumanDto() {
-//        return clientHumanDto;
-//    }
-//
-//    public void setClientHumanDto(ClientHumanDto clientHumanDto) {
-//        this.clientHumanDto = clientHumanDto;
-//    }
-
     @Override
     public String toString() {
         return "OrderDto{" +
@@ -116,10 +82,11 @@ public class OrderDto {
                 ", itemName='" + itemName + '\'' +
                 ", dateOfVisit=" + dateOfVisit +
                 ", cost=" + cost +
-//                ", employeeHumanDto=" + employeeHumanDto +
-//                ", clientHumanDto=" + clientHumanDto +
+                ", employeeId=" + employeeId +
+                ", clientId=" + clientId +
                 '}';
     }
 }
+
 
 

@@ -11,8 +11,6 @@ public class EmployeeDto {
     private BigDecimal salary;
     private String post;
     private String contractNumber;
-    private Integer orderCount;
-    private BigDecimal totalCost;
 
 
 
@@ -23,17 +21,6 @@ public class EmployeeDto {
         this.salary = salary;
         this.post = post;
         this.contractNumber = contractNumber;
-    }
-
-    public EmployeeDto(Integer id, String firstName, String lastName, BigDecimal salary, String post, String contractNumber, Integer orderCount, BigDecimal totalCost) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.salary = salary;
-        this.post = post;
-        this.contractNumber = contractNumber;
-        this.orderCount = orderCount;
-        this.totalCost = totalCost;
     }
 
     public EmployeeDto() {
@@ -97,21 +84,5 @@ public class EmployeeDto {
                 ", post='" + post + '\'' +
                 ", contractNumber='" + contractNumber + '\'' +
                 '}';
-    }
-
-    public Integer getOrderCount() {
-        return orderCount;
-    }
-
-    public void setOrderCount(Integer orderCount) {
-        this.orderCount = orderCount;
-    }
-
-    public BigDecimal getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(BigDecimal totalCost) {
-        this.totalCost = totalCost;
     }
 }

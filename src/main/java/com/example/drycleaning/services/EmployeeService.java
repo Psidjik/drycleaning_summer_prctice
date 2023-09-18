@@ -13,7 +13,6 @@ public interface EmployeeService<ID> {
     EmployeeDto addNewEmployee(EmployeeHumanDto employeeHumanDto);
     void deleteEmployee(ID employeeId);
     EmployeeHumanDto getEmployeeById(ID employeeId);
-    Integer getEmployeeByIdForOrder(HumanDto humanDto);
     EmployeeHumanDto updatePost(ID employeeId, String post);
     EmployeeHumanDto updateSalary(ID employeeId, BigDecimal salary);
     EmployeeOutDto findEmployeeByOrder(ID employeeId);
