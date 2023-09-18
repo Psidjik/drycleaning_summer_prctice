@@ -32,6 +32,12 @@ public class Order {
     private Client client;
 
 
+    private Integer sumOrderId;
+
+    private BigDecimal sumOrderCost;
+
+
+
     public Order(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, Employee employee, Client client) {
         this.id = id;
         this.itemName = itemName;
@@ -39,6 +45,12 @@ public class Order {
         this.cost = cost;
         this.employee = employee;
         this.client = client;
+    }
+
+    public Order(Integer id, Integer sumOrderId, BigDecimal sumOrderCost) {
+        this.id = id;
+        this.sumOrderId = sumOrderId;
+        this.sumOrderCost = sumOrderCost;
     }
 
     public Order() {
@@ -102,5 +114,21 @@ public class Order {
                 ", employee=" + employee +
                 ", client=" + client +
                 '}';
+    }
+
+    public Integer getSumOrderId() {
+        return sumOrderId;
+    }
+
+    public void setSumOrderId(Integer sumOrderId) {
+        this.sumOrderId = sumOrderId;
+    }
+
+    public BigDecimal getSumOrderCost() {
+        return sumOrderCost;
+    }
+
+    public void setSumOrderCost(BigDecimal sumOrderCost) {
+        this.sumOrderCost = sumOrderCost;
     }
 }

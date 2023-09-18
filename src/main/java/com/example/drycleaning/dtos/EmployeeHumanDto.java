@@ -7,6 +7,7 @@ public class EmployeeHumanDto {
     private BigDecimal salary;
     private String post;
     private String contractNumber;
+
     public HumanDto humanDto;
 
 

@@ -1,9 +1,7 @@
 package com.example.drycleaning.controllers;
 
 
-import com.example.drycleaning.dtos.EmployeeDto;
-import com.example.drycleaning.dtos.EmployeeHumanDto;
-import com.example.drycleaning.dtos.HumanDto;
+import com.example.drycleaning.dtos.*;
 import com.example.drycleaning.models.Employee;
 import com.example.drycleaning.services.EmployeeService;
 import jakarta.persistence.Id;
@@ -47,9 +45,10 @@ public class EmployeeController {
         return employeeService.updateSalary(id, salary);
     }
 
+    @GetMapping("/findEmployeeByOrder/{id}")
+    EmployeeOutDto findEmployeeByOrder(@PathVariable Integer id){
+        return employeeService.findEmployeeByOrder(id);
+    }
 
-//    @GetMapping("/getorderbyemployeeid")
-//            List<EmployeeDto> getOrderByEmployeeId(){
-//        return employeeService.findOrderCountByEmployeeId();
-//    }
+
 }

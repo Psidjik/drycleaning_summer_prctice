@@ -12,6 +12,12 @@ public class OrderOutPutDto {
     private String firstNameClient;
     private String lastNameClient;
 
+    private Integer sumOrderId;
+
+    private BigDecimal sumOrderCost;
+
+    private BigDecimal salaryEmployee;
+
     public OrderOutPutDto(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, String firstNameEmployee,
                           String lastNameEmployee, String firstNameClient, String lastNameClient) {
         this.id = id;
@@ -22,6 +28,14 @@ public class OrderOutPutDto {
         this.lastNameEmployee = lastNameEmployee;
         this.firstNameClient = firstNameClient;
         this.lastNameClient = lastNameClient;
+    }
+
+    public OrderOutPutDto(String firstNameEmployee, String lastNameEmployee, Integer sumOrderId, BigDecimal sumOrderCost, BigDecimal salaryEmployee) {
+        this.firstNameEmployee = firstNameEmployee;
+        this.lastNameEmployee = lastNameEmployee;
+        this.sumOrderId = sumOrderId;
+        this.sumOrderCost = sumOrderCost;
+        this.salaryEmployee = salaryEmployee;
     }
 
     public OrderOutPutDto() {
@@ -103,5 +117,30 @@ public class OrderOutPutDto {
                 ", firstNameClient='" + firstNameClient + '\'' +
                 ", lastNameClient='" + lastNameClient + '\'' +
                 '}';
+    }
+
+
+    public Integer getSumOrderId() {
+        return sumOrderId;
+    }
+
+    public void setSumOrderId(Integer sumOrderId) {
+        this.sumOrderId = sumOrderId;
+    }
+
+    public BigDecimal getSumOrderCost() {
+        return sumOrderCost;
+    }
+
+    public void setSumOrderCost(BigDecimal sumOrderCost) {
+        this.sumOrderCost = sumOrderCost;
+    }
+
+    public BigDecimal getSalaryEmployee() {
+        return salaryEmployee;
+    }
+
+    public void setSalaryEmployee(BigDecimal salaryEmployee) {
+        this.salaryEmployee = salaryEmployee;
     }
 }

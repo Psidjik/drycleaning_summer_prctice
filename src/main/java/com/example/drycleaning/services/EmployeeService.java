@@ -1,9 +1,8 @@
 package com.example.drycleaning.services;
 
 
-import com.example.drycleaning.dtos.EmployeeDto;
-import com.example.drycleaning.dtos.EmployeeHumanDto;
-import com.example.drycleaning.dtos.HumanDto;
+import com.example.drycleaning.dtos.*;
+import org.springframework.data.repository.query.Param;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,8 +17,7 @@ public interface EmployeeService<ID> {
     Integer getEmployeeByIdForOrder(HumanDto humanDto);
     EmployeeHumanDto updatePost(ID employeeId, String post);
     EmployeeHumanDto updateSalary(ID employeeId, BigDecimal salary);
-
-//    List<EmployeeDto> findOrderCountByEmployeeId();
+    EmployeeOutDto findEmployeeByOrder(ID employeeId);
 
 }
 

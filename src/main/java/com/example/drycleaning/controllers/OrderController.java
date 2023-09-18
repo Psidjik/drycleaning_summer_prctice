@@ -52,10 +52,5 @@ public class OrderController {
         orderService.deleteOrderById(id);
     }
 
-//    @GetMapping("/{employeeId}/{clientId}")
-//    Iterable<OrderDto> findOrderByEmployeeAndClient(@PathVariable Integer employeeId, @PathVariable Integer clientId){
-//        return orderService.findOrderByEmployeeAndClient(employeeId, clientId);
-
-
 
 }

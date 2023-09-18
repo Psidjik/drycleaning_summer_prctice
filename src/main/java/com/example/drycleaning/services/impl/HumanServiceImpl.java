@@ -68,25 +68,5 @@ public class HumanServiceImpl implements HumanService<Integer> {
     public List<OrderOutPutDto> findOrderIdAndDateByPhoneNumber(String phoneNumber) {
         return humanRepository.findOrderIdAndDateByPhoneNumber(phoneNumber).stream().map(Order -> modelMapper.map(Order, OrderOutPutDto.class)).collect(Collectors.toList());
 
-//        List<Order[]> results = humanRepository.findOrderIdAndDateByPhoneNumber(phoneNumber);
-//        List<OrderDto> orderDtos = new ArrayList<>();
-//
-//        for (Object[] result : results) {
-//            OrderDto orderDto = new OrderDto();
-//            orderDto.setId((Integer) result[0]);
-//            orderDto.setDateOfVisit((Date) result[1]);
-//            orderDto.setItemName((String) result[2]);
-//            orderDto.setCost((BigDecimal) result[3]);
-//            orderDto.setEmployeeId((Integer) result[4]);
-//            orderDto.setClientId((Integer) result[5]);
-////            orderDto.setEmployeeId((Integer)result[5]);
-//
-//            orderDtos.add(orderDto);
-//        }
-//
-//        return orderDtos;
     }
-
-
-
 }

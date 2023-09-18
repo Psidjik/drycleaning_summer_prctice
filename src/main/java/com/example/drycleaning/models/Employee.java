@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -30,6 +31,9 @@ public class Employee {
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private List<Order> order;
 
+    private Integer orderCount;
+    private BigDecimal totalCost;
+
 
     public Employee(Integer id, BigDecimal salary, String post, String contractNumber, Human human) {
         this.id = id;
@@ -37,6 +41,22 @@ public class Employee {
         this.post = post;
         this.contractNumber = contractNumber;
         this.human = human;
+    }
+
+    public Employee(Integer id, BigDecimal salary, String post, String contractNumber, Human human, List<Order> order) {
+        this.id = id;
+        this.salary = salary;
+        this.post = post;
+        this.contractNumber = contractNumber;
+        this.human = human;
+        this.order = order;
+    }
+
+    public Employee(Integer id, BigDecimal salary, Integer orderCount, BigDecimal totalCost) {
+        this.id = id;
+        this.salary = salary;
+        this.orderCount = orderCount;
+        this.totalCost = totalCost;
     }
 
     public Employee() {
@@ -91,5 +111,29 @@ public class Employee {
                 ", post='" + post + '\'' +
                 ", contractNumber='" + contractNumber + '\'' +
                 '}';
+    }
+
+    public List<Order> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<Order> order) {
+        this.order = order;
+    }
+
+    public Integer getOrderCount() {
+        return orderCount;
+    }
+
+    public void setOrderCount(Integer orderCount) {
+        this.orderCount = orderCount;
+    }
+
+    public BigDecimal getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(BigDecimal totalCost) {
+        this.totalCost = totalCost;
     }
 }

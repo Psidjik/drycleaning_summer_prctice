@@ -11,7 +11,6 @@ public interface ClientService<ID>{
     List<ClientDto> getAllClients();
     ClientDto addNewClient(ClientHumanDto ClientHumanDto);
     ClientHumanDto getClientById(ID clientId);
-
     Integer getClientByIdForOrder(HumanDto humanDto);
     void deleteClient(ID clientId);
     ClientHumanDto updateE_mail(ID clientId, String e_mail);

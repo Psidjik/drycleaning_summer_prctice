@@ -1,11 +1,10 @@
 package com.example.drycleaning.services.impl;
 
-import com.example.drycleaning.dtos.EmployeeDto;
-import com.example.drycleaning.dtos.EmployeeHumanDto;
-import com.example.drycleaning.dtos.HumanDto;
-import com.example.drycleaning.dtos.OrderDto;
+import com.example.drycleaning.dtos.*;
 import com.example.drycleaning.models.Employee;
+import com.example.drycleaning.models.Order;
 import com.example.drycleaning.repositories.EmployeeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,23 +64,26 @@ public class EmployeeServiceImpl implements EmployeeService<Integer> {
         return modelMapper.map(employee, EmployeeHumanDto.class);
     }
 
-//    @Override
-//    public List<EmployeeDto> findOrderCountByEmployeeId() {
-////        return employeeRepository.findOrderCountByEmployeeId().stream().map(employee -> modelMapper.map(employee, Object[].class)).collect(Collectors.toList());
-//        List<Object[]> results = employeeRepository.findOrderCountByEmployeeId();
-//        List<EmployeeDto> employeeDtos = new ArrayList<>();
-//
-//        for (Object[] result : results) {
-//            EmployeeDto employeeDto = new EmployeeDto();
-//            employeeDto.setId((Long) result[0]);
-//            employeeDto((Date) result[1]);
-//            employeeDto.setOrderCount((Long) result[2]);
-//            employeeDtos.add(employeeDto);
-//        }
-//
-//        return employeeDtos;
-//    }
+    @Override
+    public EmployeeOutDto findEmployeeByOrder(Integer employeeId) {
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new EntityNotFoundException("Employee not found"));
 
+        // Вычислить количество заказов и их сумму для сотрудника
+        int orderCount = employee.getOrder().size(); // Предполагается, что у сотрудника есть коллекция заказов
+        BigDecimal totalCost = BigDecimal.ZERO;
+        for (Order order : employee.getOrder()) {
+            totalCost = totalCost.add(order.getCost());
+        }
 
+        // Установить полученные значения в объект сотрудника
+        employee.setOrderCount(orderCount);
+        employee.setTotalCost(totalCost);
+
+        // Выполнить маппинг сущности сотрудника на объект EmployeeOutDto
+        EmployeeOutDto employeeOutDto = modelMapper.map(employee, EmployeeOutDto.class);
+
+        return employeeOutDto;
+
+    }
 
 }

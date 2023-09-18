@@ -23,8 +23,9 @@ public class OrderServiceImpl implements OrderService<Integer> {
     private OrderRepository orderRepository;
     @Autowired
     private ModelMapper modelMapper;
+
     @Override
-    public OrderDto getOrder(Integer employeeId, Integer clientId,  Date dateOfVisit) {
+    public OrderDto getOrder(Integer employeeId, Integer clientId, Date dateOfVisit) {
         return modelMapper.map(orderRepository.findOrderByEmployeeIdAndClientIdAndDateOfVisit(employeeId, clientId, dateOfVisit), OrderDto.class);
     }
 
@@ -35,16 +36,19 @@ public class OrderServiceImpl implements OrderService<Integer> {
 
     @Override
     public OrderDto addNewOrder(OrderDto orderDto) {
-        return  modelMapper.map(orderRepository.save(modelMapper.map(orderDto, Order.class)), OrderDto.class);
+        return modelMapper.map(orderRepository.save(modelMapper.map(orderDto, Order.class)), OrderDto.class);
     }//map - функция которая применяет к каждому объекту какие либо действия
+
     @Override
     public List<OrderOutPutDto> getAllOrders() {
         return orderRepository.findAll().stream().map(order -> modelMapper.map(order, OrderOutPutDto.class)).collect(Collectors.toList());
     }
+
     @Override
     public void deleteOrderById(Integer id) {
         orderRepository.deleteById(id);
     }
+
     @Override
     public List<OrderOutPutDto> getAllOrderByDate(Date date) {
         return orderRepository.findAllByDateOfVisit(date).stream().map(order -> modelMapper.map(order, OrderOutPutDto.class)).collect(Collectors.toList());
@@ -54,15 +58,6 @@ public class OrderServiceImpl implements OrderService<Integer> {
     public OrderOutPutDto getOrderById(Integer orderId) {
         return modelMapper.map(orderRepository.findById(orderId), OrderOutPutDto.class);
     }
-
-//    @Override
-//    public List<OrderDto> findOrderByEmployeeAndClient(Integer employeeId, Integer clientId) {
-//        return orderRepository.findOrderByEmployeeAndClient(employeeId, clientId).stream().map(o -> modelMapper.map(o, OrderDto.class)).collect(Collectors.toList());
-//    }
-
-//    @Override
-//    public List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost) {
-//        return orderRepository.;
-//    }
 }
+
 

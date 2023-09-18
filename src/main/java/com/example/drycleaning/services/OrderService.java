@@ -23,9 +23,5 @@ public interface OrderService<ID>{
 
     OrderOutPutDto getOrderById(ID orderId);
 
-//    List<OrderDto> findOrderByEmployeeAndClient(ID employeeId, ID clientId);
-
-//    List<OrderOutPutDto> getAllOrderWhereCostMore(BigDecimal cost);
-
 }
 
