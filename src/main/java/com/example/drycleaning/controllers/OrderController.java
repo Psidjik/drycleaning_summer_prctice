@@ -53,4 +53,11 @@ public class OrderController {
     }
 
 
+    @PutMapping("/updateItemName/{id}/{itemName}")
+    OrderOutPutDto updateItemName(@PathVariable Integer id, @PathVariable String itemName) {
+        return orderService.updateItemName(id, itemName);
+    }
+
+//    http://localhost:8080/order/updateItemName/2/Кепка
+
 }

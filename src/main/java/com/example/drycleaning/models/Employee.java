@@ -1,7 +1,7 @@
 package com.example.drycleaning.models;
 
 import jakarta.persistence.*;
-
+import org.springframework.data.repository.NoRepositoryBean;
 
 
 import java.math.BigDecimal;
@@ -31,7 +31,9 @@ public class Employee {
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private List<Order> order;
 
+    @Transient
     private Integer orderCount;
+    @Transient
     private BigDecimal totalCost;
 
 

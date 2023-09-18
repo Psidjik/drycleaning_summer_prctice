@@ -31,9 +31,9 @@ public class Order {
     @JoinColumn(name = "client_id")
     private Client client;
 
-
+    @Transient
     private Integer sumOrderId;
-
+    @Transient
     private BigDecimal sumOrderCost;
 
 

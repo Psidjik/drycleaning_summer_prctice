@@ -1,8 +1,10 @@
 package com.example.drycleaning.services.impl;
 
 
+import com.example.drycleaning.dtos.HumanDto;
 import com.example.drycleaning.dtos.OrderDto;
 import com.example.drycleaning.dtos.OrderOutPutDto;
+import com.example.drycleaning.models.Human;
 import com.example.drycleaning.models.Order;
 import com.example.drycleaning.repositories.OrderRepository;
 import com.example.drycleaning.services.OrderService;
@@ -57,6 +59,15 @@ public class OrderServiceImpl implements OrderService<Integer> {
     @Override
     public OrderOutPutDto getOrderById(Integer orderId) {
         return modelMapper.map(orderRepository.findById(orderId), OrderOutPutDto.class);
+    }
+
+    @Override
+    public OrderOutPutDto updateItemName(Integer orderId, String itemName) {
+        Order order = orderRepository.findById(orderId).orElseThrow();
+        order.setItemName(itemName);
+        orderRepository.save(order);
+        return modelMapper.map(order, OrderOutPutDto.class);
+
     }
 }
 

@@ -84,11 +84,6 @@ public class DrycleaningApplication {
         typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getFirstName(),OrderOutPutDto::setFirstNameClient));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getLastName(),OrderOutPutDto::setLastNameClient));
 
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getSalary(),OrderOutPutDto::setSalaryEmployee));
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getSumOrderId(),OrderOutPutDto::setSumOrderId));
-        typeMapVisitOut.addMappings(m->m.map(src -> src.getSumOrderCost(),OrderOutPutDto::setSumOrderCost));
-
-
 
 
         return modelMapper;
