@@ -25,7 +25,7 @@ public class OrderController {
     }
 
     @GetMapping("/getorder/{employeeid}/{clientid}/{date}")
-    OrderDto getOrder(@PathVariable Integer employeeid, @PathVariable Integer clientid, @PathVariable Date date){
+    OrderOutPutDto getOrder(@PathVariable Integer employeeid, @PathVariable Integer clientid, @PathVariable Date date){
         return orderService.getOrder(employeeid, clientid, date);
     }
     @GetMapping("/{id}")
@@ -48,8 +48,9 @@ public class OrderController {
     }
 
     @DeleteMapping("/delete/{id}")
-    void deleteOrderById(@PathVariable Integer id){
+    String deleteOrderById(@PathVariable Integer id){
         orderService.deleteOrderById(id);
+        return "Order with id = " + id + " was deleted";
     }
 
 

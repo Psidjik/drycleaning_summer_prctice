@@ -4,6 +4,7 @@ package com.example.drycleaning.services.impl;
 import com.example.drycleaning.dtos.ClientDto;
 import com.example.drycleaning.dtos.ClientHumanDto;
 import com.example.drycleaning.dtos.HumanDto;
+import com.example.drycleaning.dtos.OrderOutPutDto;
 import com.example.drycleaning.models.Client;
 import com.example.drycleaning.repositories.ClientRepository;
 import com.example.drycleaning.services.ClientService;
@@ -11,6 +12,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -47,5 +50,10 @@ public class ClientServiceImpl implements ClientService<Integer> {
         client.setE_mail(e_mail);
         clientRepository.save(client);
         return modelMapper.map(client, ClientHumanDto.class);
+    }
+
+    @Override
+    public List<ClientDto> findClientsWithOrdersByDateOfVisitAboveTotalAmount(Date dateOfVisit, BigDecimal minTotalAmount) {
+        return clientRepository.findClientsWithOrdersAboveTotalAmountAndDate(dateOfVisit, minTotalAmount).stream().map(client -> modelMapper.map(client, ClientDto.class)).collect(Collectors.toList());
     }
 }

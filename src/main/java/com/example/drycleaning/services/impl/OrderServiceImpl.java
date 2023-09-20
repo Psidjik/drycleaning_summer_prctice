@@ -27,8 +27,8 @@ public class OrderServiceImpl implements OrderService<Integer> {
     private ModelMapper modelMapper;
 
     @Override
-    public OrderDto getOrder(Integer employeeId, Integer clientId, Date dateOfVisit) {
-        return modelMapper.map(orderRepository.findOrderByEmployeeIdAndClientIdAndDateOfVisit(employeeId, clientId, dateOfVisit), OrderDto.class);
+    public OrderOutPutDto getOrder(Integer employeeId, Integer clientId, Date dateOfVisit) {
+        return modelMapper.map(orderRepository.findOrderByEmployeeIdAndClientIdAndDateOfVisit(employeeId, clientId, dateOfVisit), OrderOutPutDto.class);
     }
 
     @Override

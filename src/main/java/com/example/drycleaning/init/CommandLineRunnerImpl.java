@@ -43,7 +43,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             HumanDto employeeHuman4 = new HumanDto(4, "Denis", "Gribnik", "87894562321");
 
             HumanDto clientHuman1 = new HumanDto(5, "Goga", "Nikitin", "89636593993");
-            HumanDto clientHuman2 = new HumanDto(6, "Den", "Buckin", "85236529654");
+            HumanDto clientHuman2 = new HumanDto(6, "Denis", "Bukin", "85236529654");
             HumanDto clientHuman3 = new HumanDto(7, "George", "Evklid", "85452145263");
             HumanDto clientHuman4 = new HumanDto(8, "Miha", "Mihail", "87452132563");
             HumanDto clientHuman5 = new HumanDto(9, "Oleg", "Olegovich", "89652147845");

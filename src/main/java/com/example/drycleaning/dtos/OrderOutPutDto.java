@@ -1,20 +1,23 @@
 package com.example.drycleaning.dtos;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Transient;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.GregorianCalendar;
 
 public class OrderOutPutDto {
     private Integer id;
     private String itemName;
-    private Date dateOfVisit;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private GregorianCalendar dateOfVisit;
     private BigDecimal cost;
     private String firstNameEmployee;
     private String lastNameEmployee;
     private String firstNameClient;
     private String lastNameClient;
 
-    public OrderOutPutDto(Integer id, String itemName, Date dateOfVisit, BigDecimal cost, String firstNameEmployee,
+    public OrderOutPutDto(Integer id, String itemName, GregorianCalendar dateOfVisit, BigDecimal cost, String firstNameEmployee,
                           String lastNameEmployee, String firstNameClient, String lastNameClient) {
         this.id = id;
         this.itemName = itemName;
@@ -45,11 +48,11 @@ public class OrderOutPutDto {
         this.itemName = itemName;
     }
 
-    public Date getDateOfVisit() {
+    public GregorianCalendar getDateOfVisit() {
         return dateOfVisit;
     }
 
-    public void setDateOfVisit(Date dateOfVisit) {
+    public void setDateOfVisit(GregorianCalendar dateOfVisit) {
         this.dateOfVisit = dateOfVisit;
     }
 

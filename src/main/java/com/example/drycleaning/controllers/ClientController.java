@@ -6,8 +6,11 @@ import com.example.drycleaning.dtos.ClientHumanDto;
 import com.example.drycleaning.services.ClientService;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -38,5 +41,10 @@ public class ClientController {
     @PutMapping("/updateE_mail/{id}/{e_mail}")
     ClientHumanDto updateEmail(@PathVariable Integer id, @PathVariable String e_mail){
         return clientService.updateE_mail(id, e_mail);
+    }
+
+    @GetMapping("/findClientsWithOrder/{date}/{minCost}")
+    List<ClientDto> findClientsWithOrdersByDateOfVisitAboveTotalAmount(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @PathVariable BigDecimal minCost) {
+        return clientService.findClientsWithOrdersByDateOfVisitAboveTotalAmount(date,minCost);
     }
 }
