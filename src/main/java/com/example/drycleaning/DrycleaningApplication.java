@@ -55,6 +55,8 @@ public class DrycleaningApplication {
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getLastName(),ClientDto::setLastName));
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),ClientDto::setPhoneNumber));
 
+        TypeMap<ClientDto, ClientHumanDto> typeMapClientHumanDto = modelMapper.createTypeMap(ClientDto.class, ClientHumanDto.class);
+        typeMapClientHumanDto.addMappings(m->m.map(src-> src.getE_mail(), ClientHumanDto::setE_mail));
         //чтобы была ссылка на объект human
         TypeMap<Client, ClientHumanDto> typeMapClientHuman = modelMapper.createTypeMap(Client.class,ClientHumanDto.class);
         typeMapClientHuman.addMappings(m->m.map(src -> src.getHuman().getClient().getHuman(),ClientHumanDto::setHumanDto));

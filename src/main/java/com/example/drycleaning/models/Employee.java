@@ -22,12 +22,11 @@ public class Employee {
     private String post;
     @Column(name = "contract_number", length = 25, nullable = false)
     private String contractNumber;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human human;
-    //про каскадки более изучить
 
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private List<Order> order;
 
