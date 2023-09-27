@@ -12,10 +12,8 @@ import java.util.List;
 
 public interface OrderService<ID>{
     OrderOutPutDto getOrder(ID clientId, ID employeeId, Date dateOfVisit);
-    //*
     void deleteOrder(ID employeeId, ID clientId, Date dateOfVisit);
     OrderDto addNewOrder(OrderDto orderDto);
-//разобраться с ДТО и реализовать здесь метод который ищет ордер по айди таблицы
     List<OrderOutPutDto> getAllOrders();
     void deleteOrderById(ID orderId);
     List<OrderOutPutDto> getAllOrderByDate(Date date);

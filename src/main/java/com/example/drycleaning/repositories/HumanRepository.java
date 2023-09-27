@@ -19,5 +19,4 @@ public interface HumanRepository extends JpaRepository<Human, Integer> {
             "JOIN c.human h " +
             "WHERE h.phoneNumber = :phoneNumber")
     List<Order> findOrderIdAndDateByPhoneNumber(@Param("phoneNumber") String phoneNumber);
-
 }

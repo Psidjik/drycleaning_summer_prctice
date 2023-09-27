@@ -15,7 +15,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
             "WHERE e.id = :employeeId " +
             "GROUP BY e.id, e.human.firstName, e.human.lastName, e.salary")
     EmployeeOutDto findEmployeeByOrder(@Param("employeeId") Integer employeeId);
-
 }
 
 

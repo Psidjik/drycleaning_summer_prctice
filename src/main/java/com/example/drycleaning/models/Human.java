@@ -22,6 +22,12 @@ public class Human {
     @Column(name = "phoneNumber",length = 20, nullable = false)
     private String phoneNumber;
 
+    @OneToOne(mappedBy = "human", cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
+    private Employee employee;
+
+    @OneToOne(mappedBy = "human",cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
+    private Client client;
+
     public Human(Integer id, String firstName, String lastName, String phoneNumber, Employee employee, Client client) {
         this.id = id;
         this.firstName = firstName;
@@ -34,11 +40,7 @@ public class Human {
     public Human() {
     }
 
-    @OneToOne(mappedBy = "human", cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
-    private Employee employee;
 
-    @OneToOne(mappedBy = "human",cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
-    private Client client;
 
     public Integer getId() {
         return id;

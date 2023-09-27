@@ -18,8 +18,5 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
 void deleteOrderByEmployeeIdAndClientIdAndDateOfVisit(Integer employeeId, Integer clientId, Date dateOfVisit);
 Order findOrderByEmployeeIdAndClientIdAndDateOfVisit(Integer employeeId, Integer clientId, Date dateOfVisit);
 List<Order> findAllByDateOfVisit(Date dateOfVisit);
-
-
-
 }
 

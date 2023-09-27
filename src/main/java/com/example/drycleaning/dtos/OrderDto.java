@@ -9,7 +9,6 @@ public class OrderDto {
     private String itemName;
     private GregorianCalendar dateOfVisit;
     private BigDecimal cost;
-
     private Integer employeeId;
     private Integer clientId;
 

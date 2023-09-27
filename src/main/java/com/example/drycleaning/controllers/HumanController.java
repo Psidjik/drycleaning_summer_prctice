@@ -49,5 +49,4 @@ public class HumanController {
         return humanService.findOrderIdAndDateByPhoneNumber(phoneNumber);
     }
 
-
-    }
+}

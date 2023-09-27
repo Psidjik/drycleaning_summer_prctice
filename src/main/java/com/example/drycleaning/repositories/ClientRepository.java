@@ -17,9 +17,5 @@ public interface ClientRepository extends JpaRepository<Client,Integer> {
             "JOIN FETCH c.order o " +
             "WHERE o.dateOfVisit = :date AND o.cost > :minTotalAmount ")
     List<Client> findClientsWithOrdersAboveTotalAmountAndDate(Date date, BigDecimal minTotalAmount);
-
-
-
-
 }
 

@@ -22,7 +22,6 @@ import java.util.Objects;
 public class DrycleaningApplication {
 
     @Bean
-//    Spring container
     public ModelMapper modelMapper(){
         ModelMapper modelMapper = new ModelMapper();
 
@@ -55,9 +54,11 @@ public class DrycleaningApplication {
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getFirstName(),ClientDto::setFirstName));
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getLastName(),ClientDto::setLastName));
         typeMapClient.addMappings(m->m.map(src -> src.getHuman().getPhoneNumber(),ClientDto::setPhoneNumber));
+
         //чтобы была ссылка на объект human
         TypeMap<Client, ClientHumanDto> typeMapClientHuman = modelMapper.createTypeMap(Client.class,ClientHumanDto.class);
         typeMapClientHuman.addMappings(m->m.map(src -> src.getHuman().getClient().getHuman(),ClientHumanDto::setHumanDto));
+        typeMapClientHuman.addMappings(m->m.map(src -> src.getHuman().getClient().getE_mail(),ClientHumanDto::setE_mail));
 
 
         //для вывода, чтобы не было humanDto=null
@@ -80,18 +81,10 @@ public class DrycleaningApplication {
         typeMapVisitOut.addMappings(m->m.map(src -> src.getItemName(),OrderOutPutDto::setItemName));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getDateOfVisit(),OrderOutPutDto::setDateOfVisit));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getCost(),OrderOutPutDto::setCost));
-
         typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getFirstName(),OrderOutPutDto::setFirstNameEmployee));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getEmployee().getHuman().getLastName(),OrderOutPutDto::setLastNameEmployee));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getFirstName(),OrderOutPutDto::setFirstNameClient));
         typeMapVisitOut.addMappings(m->m.map(src -> src.getClient().getHuman().getLastName(),OrderOutPutDto::setLastNameClient));
-
-//        TypeMap<Order, OrderDto> typeMapOrderDto = modelMapper.createTypeMap(Order.class, OrderDto.class);
-//        typeMapOrderDto.addMappings(m->m.map(src->src.getId(),OrderDto::setId));
-//        typeMapOrderDto.addMappings(m->m.map(src->src.getEmployee().getHuman().getFirstName(),OrderDto::set));
-//        typeMapOrderDto.addMappings(m->m.map(src->src.getId(),OrderDto::setId));
-//        typeMapOrderDto.addMappings(m->m.map(src->src.getId(),OrderDto::setId));
-
 
 
         return modelMapper;

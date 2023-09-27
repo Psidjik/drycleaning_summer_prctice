@@ -19,6 +19,4 @@ public interface ClientService<ID>{
     ClientHumanDto updateE_mail(ID clientId, String e_mail);
     List<ClientDto> findClientsWithOrdersByDateOfVisitAboveTotalAmount(Date dateOfVisit, BigDecimal minTotalAmount);
 
-
-
 }
